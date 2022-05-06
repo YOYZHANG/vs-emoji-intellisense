@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config-ts': ^0.23.0
   '@types/fs-extra': ^9.0.13
+  '@types/vscode': ^1.67.0
   eslint: ^8.14.0
   esno: ^0.14.1
   fs-extra: ^10.1.0
@@ -12,6 +13,7 @@ specifiers:
 devDependencies:
   '@antfu/eslint-config-ts': 0.23.0_t725usgvqspm5woeqpaxbfp2qu
   '@types/fs-extra': 9.0.13
+  '@types/vscode': 1.67.0
   eslint: 8.14.0
   esno: 0.14.1
   fs-extra: 10.1.0
@@ -162,6 +164,10 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+    dev: true
+
+  /@types/vscode/1.67.0:
+    resolution: {integrity: sha512-GH8BDf8cw9AC9080uneJfulhSa7KHSMI2s/CyKePXoGNos9J486w2V4YKoeNUqIEkW4hKoEAWp6/cXTwyGj47g==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.22.0_lnjlwhtxjffjmj5o7dnwvwyqxq:
