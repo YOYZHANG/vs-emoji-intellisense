@@ -1,3 +1,6 @@
+
+
+
 {
   "name": "vs-emoji-intellisense",
   "version": "0.0.1",
@@ -18,13 +21,21 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "esno scripts/build.ts",
-    "dev": "pnpm build -- --watch",
-    "lint": "eslint ."
+    "dev": "pnpm build -- -- watch",
+    "lint": "eslint .",
+    "release": "bumpp --tag --push --commit"
   },
   "bugs": {
     "url": "https://github.com/YOYZHANG/vs-emoji-intellisense/issues"
   },
   "homepage": "https://github.com/YOYZHANG/vs-emoji-intellisense#readme",
+  "dependencies": {
+    "bumpp": "^7.1.1",
+    "gemoji": "^7.1.0"
+  },
+  "engines": {
+    "vscode": "^1.47.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.23.0",
     "@types/fs-extra": "^9.0.13",
@@ -34,5 +45,27 @@
     "fs-extra": "^10.1.0",
     "tsup": "^5.12.7",
     "typescript": "^4.6.4"
+  },
+  "activationEvents": [
+    "workspaceContains:package.json",
+    "onLanguage:markdown"
+  ],
+  "configuration": {
+    "type": "emoji",
+    "title": "emoji IntellSense",
+    "properties": {
+      "emoji.languageIds": {
+        "type": "array",
+        "item": {
+          "type": "string"
+        },
+        "default": [
+          "markdown",
+          "plaintext",
+          "git-commit"
+        ]
+      }
+    }
   }
 }
+

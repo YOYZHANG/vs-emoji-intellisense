@@ -19,7 +19,7 @@ async function build() {
   delete json.scripts
   delete json.devDependencies
   json.main = 'index.js'
-  await fs.writeJSON('./dist/package/json', json)
+  await fs.writeJSON('./dist/package.json', json)
 }
 
 build()
