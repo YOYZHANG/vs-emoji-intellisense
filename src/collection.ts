@@ -24,4 +24,4 @@ export function getEmojiInfo(key: string) {
   return result.length ? result[0] : null;
 }
 
-export const categorys = gemoji.map(i => i.category)
+export const categorys = new Set(gemoji.map(i => i.category))

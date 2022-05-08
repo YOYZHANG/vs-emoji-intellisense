@@ -4,14 +4,10 @@ import { getEmojiInfo } from './collection'
 import { isTruthy } from './utils/types'
 
 export function RegisterAnnotations(ctx: ExtensionContext) {
-  const InlineDecoration = window.createTextEditorDecorationType({
-    textDecoration: 'none; opacity: 0.6 !important',
-    rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+  const HideTextDecoration = window.createTextEditorDecorationType({
+    textDecoration: 'none; display:none;',
+    rangeBehavior: DecorationRangeBehavior.OpenOpen
   })
-
-  // const HideTextDecoration = window.createTextEditorDecorationType({
-  //   textDecoration: 'none; display:none;',
-  // })
 
   let editor: TextEditor | undefined
   let decorations: DecorationOptions[] = []
@@ -26,7 +22,7 @@ export function RegisterAnnotations(ctx: ExtensionContext) {
     if (!editor)
       return
 
-    editor.setDecorations(InlineDecoration, decorations)
+    editor.setDecorations(HideTextDecoration, decorations)
   }
 
   async function updateDecorations() {
@@ -62,9 +58,9 @@ export function RegisterAnnotations(ctx: ExtensionContext) {
         range,
         renderOptions: {
           after: {
-            contentText: info.emoji,
+            contentText: `:${info.name}:`,
             margin: '0.2em; transform: translate(-2px, 3px)',
-            color: 'rgba(255, 255, 255)',
+            color: 'rgba(0, 0, 0, 0.4)',
           },
         },
         // hoverMessage: await getEmojiMarkdown(ctx, key),

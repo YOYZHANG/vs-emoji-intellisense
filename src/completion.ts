@@ -3,7 +3,7 @@ import { CompletionItem, CompletionItemKind, Position, Range, languages } from '
 import { collections } from './collection'
 import { getMarkdown } from './markdown'
 
-const REGEX_COLLECTION = /(:[\w\d_+-]+?)$/
+const REGEX_COLLECTION = /(?:\s|^)(:$)|(:[\w\d_+-]+?)$|(:[\w\d_+-]+:)$/
 export function RegisterCompletion(ctx: ExtensionContext) {
   const emojiProvider: CompletionItemProvider = {
     provideCompletionItems(document: TextDocument, position: Position) {
@@ -14,13 +14,11 @@ export function RegisterCompletion(ctx: ExtensionContext) {
       if (!match)
         return []
       
-
       return collections.map((x) => {
-        // ???
-        const item = new CompletionItem(`${x.emoji}:${x.name}:`, CompletionItemKind.Text)
+        const item = new CompletionItem(`${x.emoji} :${x.name}:`, CompletionItemKind.Value)
         item.filterText = `:${x.name}:`
-        item.insertText = x.emoji
-
+        item.insertText = `:${x.name}:${x.emoji}`
+        item.range = new Range(position.translate(0, -1), position)
         return item
       })
     },
