@@ -1,20 +1,23 @@
-import { ExtensionContext, SnippetString, TreeItem, window } from 'vscode'
+import { ExtensionContext, SnippetString, TreeDataProvider, TreeItem, TreeView, window } from 'vscode'
 import { commands } from 'vscode'
+import { config } from './config'
+import { EmojiTreeDataProvider, TreeNode } from './explorer'
 import { EXT_NAMESPACE } from './meta'
 import { Log } from './utils'
 
 export function RegisterCommands(ctx: ExtensionContext) {
   ctx.subscriptions.push(
-    commands.registerCommand('emojiIntellSense.showEmojiSearch', async () => {
+    commands.registerCommand(`${EXT_NAMESPACE}.showEmojiSearch`, async () => {
       const search = (await window.showInputBox({
-        value: '',
+        value: config.lastSearch,
         prompt: 'Search emoji',
         placeHolder: 'Search emoji'
       })) || ''
 
-      commands.executeCommand('emojiIntellSense.showEmojiSearch', search)
+      commands.executeCommand(`${EXT_NAMESPACE}.performEmojiSearch`, search)
     })
   )
+
 
   ctx.subscriptions.push(
     commands.registerCommand('emojiIntellSense.insertEmojiInActiveEditor', async (node: TreeItem) => {
@@ -27,5 +30,11 @@ export function RegisterCommands(ctx: ExtensionContext) {
         Log.error('No active editor')
       }
     })
+  )
+}
+
+export function RegisterExploreCommands(ctx: ExtensionContext, cmd: string, cb: (search: string) => void) {
+  ctx.subscriptions.push(
+    commands.registerCommand(`${EXT_NAMESPACE}.${cmd}`, cb)
   )
 }

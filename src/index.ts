@@ -12,7 +12,7 @@ export async function activate(ctx: ExtensionContext) {
   RegisterAnnotations(ctx)
   RegisterCompletion(ctx)
   RegisterCommands(ctx)
-	RegisterExplorer()
+	RegisterExplorer(ctx)
 }
 
 export function deactivate() {

@@ -7,4 +7,5 @@ function getConfig<T>(key: string): T | undefined {
 
 export const config = {
   languageIds: getConfig(`${EXT_NAMESPACE}.lanuageIds`),
+  lastSearch: 'smile'
 }

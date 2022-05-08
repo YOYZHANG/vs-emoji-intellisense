@@ -9,7 +9,7 @@ async function build() {
     'LICENSE',
     'README.md',
     'CHANGELOG.md',
-    'logo',
+    'resource',
   ]
 
   for (const f of files)
