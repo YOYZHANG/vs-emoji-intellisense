@@ -1,6 +1,6 @@
 {
-  "name": "vs-emoji-intellisense",
-  "version": "0.0.1",
+  "name": "emoji-intellisense",
+  "version": "0.0.4",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
   "keywords": [
@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "author": "yoyzhang",
+  "icon": "resource/logo.png",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YOYZHANG/vs-emoji-intellisense.git"
@@ -27,7 +28,7 @@
   },
   "homepage": "https://github.com/YOYZHANG/vs-emoji-intellisense#readme",
   "engines": {
-    "vscode": "^1.47.0"
+    "vscode": "^1.45.0"
   },
   "dependencies": {
     "fuse.js": "^6.6.1"
