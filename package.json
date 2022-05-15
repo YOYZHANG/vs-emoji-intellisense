@@ -29,6 +29,9 @@
   "engines": {
     "vscode": "^1.47.0"
   },
+  "dependencies": {
+    "fuse.js": "^6.6.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.23.0",
     "@types/fs-extra": "^9.0.13",
@@ -66,6 +69,11 @@
           "command": "emojiIntellSense.insertEmojiInActiveEditor",
           "when": "view == emojiExplorer && viewItem == emoji",
           "group": "inline"
+        },
+        {
+          "command": "emojiIntellSense.closeSearch",
+          "when": "view == emojiExplorer && viewItem == emojiSearch",
+          "group": "inline"
         }
       ]
     },
@@ -90,6 +98,14 @@
         "command": "emojiIntellSense.performEmojiSearch",
         "when": "false",
         "title": "emoji search"
+      },
+      {
+        "command": "emojiIntellSense.closeSearch",
+        "title": "close emoji search",
+        "icon": {
+          "light": "./resource/light/close.svg",
+          "dark": "./resource/dark/close.svg"
+        }
       }
     ]
   },
@@ -109,8 +125,5 @@
         ]
       }
     }
-  },
-  "dependencies": {
-    "fuse.js": "^6.6.1"
   }
 }

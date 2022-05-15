@@ -1,4 +1,4 @@
-import { ExtensionContext } from 'vscode'
+import type { ExtensionContext } from 'vscode'
 import { version } from '../package.json'
 import { RegisterAnnotations } from './annotation'
 import { RegisterCommands } from './commands'
@@ -9,10 +9,10 @@ import { Log } from './utils'
 export async function activate(ctx: ExtensionContext) {
   Log.info(`Activated, v${version}`)
 
-  RegisterAnnotations(ctx)
+  // RegisterAnnotations(ctx)
   RegisterCompletion(ctx)
   RegisterCommands(ctx)
-	RegisterExplorer(ctx)
+  RegisterExplorer(ctx)
 }
 
 export function deactivate() {

@@ -6,7 +6,7 @@ import { isTruthy } from './utils/types'
 export function RegisterAnnotations(ctx: ExtensionContext) {
   const HideTextDecoration = window.createTextEditorDecorationType({
     textDecoration: 'none; display:none;',
-    rangeBehavior: DecorationRangeBehavior.OpenOpen
+    rangeBehavior: DecorationRangeBehavior.OpenOpen,
   })
 
   let editor: TextEditor | undefined

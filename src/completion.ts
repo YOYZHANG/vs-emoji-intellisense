@@ -13,11 +13,11 @@ export function RegisterCompletion(ctx: ExtensionContext) {
 
       if (!match)
         return []
-      
+
       return collections.map((x) => {
         const item = new CompletionItem(`${x.emoji} :${x.name}:`, CompletionItemKind.Value)
         item.filterText = `:${x.name}:`
-        item.insertText = `:${x.name}:${x.emoji}`
+        item.insertText = `${x.emoji}`
         item.range = new Range(position.translate(0, -1), position)
         return item
       })
@@ -33,12 +33,12 @@ export function RegisterCompletion(ctx: ExtensionContext) {
     languages.registerCompletionItemProvider(
       'markdown',
       emojiProvider,
-      ':'
+      ':',
     ),
     languages.registerCompletionItemProvider(
       'plaintext',
       emojiProvider,
-      ":"
+      ':',
     ),
   )
 }

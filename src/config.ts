@@ -1,5 +1,5 @@
 import { workspace } from 'vscode'
-import { EXT_NAME, EXT_NAMESPACE } from './meta'
+import { EXT_NAMESPACE } from './meta'
 
 function getConfig<T>(key: string): T | undefined {
   return workspace.getConfiguration().get<T>(key)
@@ -7,5 +7,5 @@ function getConfig<T>(key: string): T | undefined {
 
 export const config = {
   languageIds: getConfig(`${EXT_NAMESPACE}.lanuageIds`),
-  lastSearch: ''
+  lastSearch: '',
 }
