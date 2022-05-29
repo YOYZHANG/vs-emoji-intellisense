@@ -1,12 +1,15 @@
 import type { CompletionItemProvider, ExtensionContext, TextDocument } from 'vscode'
 import { CompletionItem, CompletionItemKind, Position, Range, languages } from 'vscode'
 import { collections } from './collection'
+import { Log } from './utils/Log'
 
-// const REGEX_COLLECTION = /(?:\s|^)(:$)|(:[\w\d_+-]+?)$|(:[\w\d_+-]+:)$/
-const REGEX_COLLECTION = /\:\:/
+const REGEX_COLLECTION = /(\:[\w\d+_-])/
 export function RegisterCompletion(ctx: ExtensionContext) {
   const emojiProvider: CompletionItemProvider = {
     provideCompletionItems(document: TextDocument, position: Position) {
+      if (position.character === 0)
+        return []
+
       const line = document.getText(new Range(new Position(position.line, 0), new Position(position.line, position.character)))
 
       const match = line.match(REGEX_COLLECTION)
@@ -18,16 +21,10 @@ export function RegisterCompletion(ctx: ExtensionContext) {
         const item = new CompletionItem(`${x.emoji} :${x.name}:`, CompletionItemKind.Color)
         item.filterText = `:${x.name}:`
         item.insertText = `${x.emoji}`
-        item.range = new Range(position.translate(0, -1), position)
+        item.range = new Range(position.translate(0, -2), position)
         return item
       })
     },
-    // async resolveCompletionItem(item: CompletionItem) {
-    //   return {
-    //     ...item,
-    //     documentation: await getMarkdown(ctx, item.label as string),
-    //   }
-    // },
   }
   ctx.subscriptions.push(
     languages.registerCompletionItemProvider(
@@ -37,6 +34,11 @@ export function RegisterCompletion(ctx: ExtensionContext) {
     ),
     languages.registerCompletionItemProvider(
       'plaintext',
+      emojiProvider,
+      ':',
+    ),
+    languages.registerCompletionItemProvider(
+      'git-commit',
       emojiProvider,
       ':',
     ),
