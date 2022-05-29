@@ -1,7 +1,6 @@
 import type { CompletionItemProvider, ExtensionContext, TextDocument } from 'vscode'
 import { CompletionItem, CompletionItemKind, Position, Range, languages } from 'vscode'
 import { collections } from './collection'
-import { Log } from './utils/Log'
 
 const REGEX_COLLECTION = /(\:[\w\d+_-])/
 export function RegisterCompletion(ctx: ExtensionContext) {

@@ -1,6 +1,6 @@
 {
   "name": "emoji-intellisense",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
   "keywords": [
@@ -19,7 +19,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "esno scripts/build.ts",
-    "dev": "pnpm build -- -- watch",
     "lint": "eslint .",
     "release": "bumpp --tag --push --commit"
   },
