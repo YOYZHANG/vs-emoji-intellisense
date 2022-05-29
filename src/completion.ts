@@ -2,7 +2,7 @@ import type { CompletionItemProvider, ExtensionContext, TextDocument } from 'vsc
 import { CompletionItem, CompletionItemKind, Position, Range, languages } from 'vscode'
 import { collections } from './collection'
 
-const REGEX_COLLECTION = /(\:[\w\d+_-])/
+const REGEX_COLLECTION = /(\:[\w\d+_-]*)/
 export function RegisterCompletion(ctx: ExtensionContext) {
   const emojiProvider: CompletionItemProvider = {
     provideCompletionItems(document: TextDocument, position: Position) {
@@ -20,24 +20,14 @@ export function RegisterCompletion(ctx: ExtensionContext) {
         const item = new CompletionItem(`${x.emoji} :${x.name}:`, CompletionItemKind.Color)
         item.filterText = `:${x.name}:`
         item.insertText = `${x.emoji}`
-        item.range = new Range(position.translate(0, -2), position)
+        item.range = new Range(position.translate(0, -match[1].length), position)
         return item
       })
     },
   }
   ctx.subscriptions.push(
     languages.registerCompletionItemProvider(
-      'markdown',
-      emojiProvider,
-      ':',
-    ),
-    languages.registerCompletionItemProvider(
-      'plaintext',
-      emojiProvider,
-      ':',
-    ),
-    languages.registerCompletionItemProvider(
-      'git-commit',
+      ['markdown', 'plaintex', 'git-commit'],
       emojiProvider,
       ':',
     ),
