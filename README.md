@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/logo.png?raw=true" alt="logo" width='450'/>
+<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/info.png?raw=true" alt="logo" width='450'/>
 </p>
 
 <br>
@@ -10,13 +10,13 @@
 - Fuzzy search emojis
 
 ### Intellisense
-<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/compilation.gif?raw=true" alt="intellisense" width='500'/>
+<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/compilation.gif?raw=true" alt="intellisense" width='600'/>
 
 ### Explorer
-<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/explore.gif?raw=true" alt="logo" width='500'/>
+<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/explore.gif?raw=true" alt="logo" width='600'/>
 
 ### Search
-<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/search.gif?raw=true" alt="logo" width='500'/>
+<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/search.gif?raw=true" alt="logo" width='600'/>
 
 
 
