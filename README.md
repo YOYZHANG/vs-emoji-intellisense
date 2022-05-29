@@ -1,8 +1,6 @@
 <p align="center">
-<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/info.png?raw=true" alt="logo" width='450'/>
+<img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/info.png?raw=true" alt="logo" width='600'/>
 </p>
-
-<br>
 
 ### Features
 - Suggest emoji names after typing `:`
