@@ -3,6 +3,7 @@
   "version": "0.1.1-beta.4",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
+  "publisher": "zhangxiaoqian",
   "keywords": [
     "emoji",
     "git",
