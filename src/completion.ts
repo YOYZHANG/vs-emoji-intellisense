@@ -2,8 +2,6 @@ import type { CompletionItemProvider, ExtensionContext, TextDocument } from 'vsc
 import { CompletionItem, CompletionItemKind, Position, Range, languages } from 'vscode'
 import { collections } from './collection'
 import { REGEX_NAMESPACE, config } from './config'
-import { Log } from './utils'
-
 // const REGEX_COLLECTION = /(\:[\w\d+_-]*)/
 export function RegisterCompletion(ctx: ExtensionContext) {
   const emojiProvider: CompletionItemProvider = {
@@ -13,11 +11,7 @@ export function RegisterCompletion(ctx: ExtensionContext) {
 
       const line = document.getText(new Range(new Position(position.line, 0), new Position(position.line, position.character)))
 
-      Log.error(REGEX_NAMESPACE.value)
-      Log.error(line)
       const match = line.match(REGEX_NAMESPACE.value)
-
-      Log.error(match)
 
       if (!match)
         return []
