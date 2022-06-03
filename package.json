@@ -1,6 +1,6 @@
 {
   "name": "emoji-intellisense",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
   "publisher": "zhangxiaoqian",
