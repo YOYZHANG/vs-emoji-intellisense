@@ -4,7 +4,6 @@ import Fuse from 'fuse.js'
 import { categorys, collections } from './collection'
 import { EXT_NAMESPACE } from './meta'
 import { Log } from './utils'
-import { config } from './config'
 import { RegisterExploreCommands } from './commands'
 
 export interface TreeNode extends TreeItem {
@@ -18,6 +17,7 @@ export interface EmojiTreeDataProvider extends TreeDataProvider<TreeNode> {
 }
 
 export function RegisterExplorer(ctx: ExtensionContext) {
+  let lastSearch = ''
   function getSearchResult(element: TreeNode): TreeNode[] {
     const fuse = new Fuse(collections, {
       isCaseSensitive: false,
@@ -32,10 +32,10 @@ export function RegisterExplorer(ctx: ExtensionContext) {
       ],
     })
 
-    const result = fuse.search(config.lastSearch)
+    const result = fuse.search(lastSearch)
 
     if (!result.length)
-      Log.error(`No icons found matching ${config.lastSearch}`)
+      Log.error(`No icons found matching ${lastSearch}`)
 
     return result.map(i => ({
       type: 'emoji',
@@ -100,7 +100,7 @@ export function RegisterExplorer(ctx: ExtensionContext) {
       else {
         const children: TreeNode[] = []
 
-        if (config.lastSearch) {
+        if (lastSearch) {
           children.push({
             type: 'search',
             label: 'Search Result',
@@ -143,7 +143,7 @@ export function RegisterExplorer(ctx: ExtensionContext) {
     if (!search)
       return
 
-    config.lastSearch = search
+    lastSearch = search
 
     treeDataProvider.refresh()
     treeView.reveal(
@@ -159,7 +159,7 @@ export function RegisterExplorer(ctx: ExtensionContext) {
   })
 
   RegisterExploreCommands(ctx, 'closeSearch', async () => {
-    config.lastSearch = ''
+    lastSearch = ''
     treeDataProvider.refresh()
   })
 }

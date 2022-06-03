@@ -4,6 +4,7 @@ specifiers:
   '@antfu/eslint-config-ts': ^0.23.0
   '@types/fs-extra': ^9.0.13
   '@types/vscode': ^1.67.0
+  '@vue/reactivity': ^3.2.36
   bumpp: ^7.1.1
   eslint: ^8.14.0
   esno: ^0.14.1
@@ -13,6 +14,7 @@ specifiers:
   typescript: ^4.6.4
 
 dependencies:
+  '@vue/reactivity': 3.2.36
   fuse.js: 6.6.1
 
 devDependencies:
@@ -311,6 +313,16 @@ packages:
       '@typescript-eslint/types': 5.22.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vue/reactivity/3.2.36:
+    resolution: {integrity: sha512-c2qvopo0crh9A4GXi2/2kfGYMxsJW4tVILrqRPydVGZHhq0fnzy6qmclWOhBFckEhmyxmpHpdJtIRYGeKcuhnA==}
+    dependencies:
+      '@vue/shared': 3.2.36
+    dev: false
+
+  /@vue/shared/3.2.36:
+    resolution: {integrity: sha512-JtB41wXl7Au3+Nl3gD16Cfpj7k/6aCroZ6BbOiCMFCMvrOpkg/qQUXTso2XowaNqBbnkuGHurLAqkLBxNGc1hQ==}
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.7.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}

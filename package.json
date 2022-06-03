@@ -1,6 +1,6 @@
 {
   "name": "emoji-intellisense",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
   "publisher": "zhangxiaoqian",
@@ -31,6 +31,7 @@
     "vscode": "^1.45.0"
   },
   "dependencies": {
+    "@vue/reactivity": "^3.2.36",
     "fuse.js": "^6.6.1"
   },
   "devDependencies": {
@@ -111,10 +112,10 @@
     ]
   },
   "configuration": {
-    "type": "emoji",
+    "type": "object",
     "title": "emoji IntellSense",
     "properties": {
-      "emoji.languageIds": {
+      "emojiIntellSense.languageIds": {
         "type": "array",
         "item": {
           "type": "string"
@@ -123,7 +124,19 @@
           "markdown",
           "plaintext",
           "git-commit"
-        ]
+        ],
+        "description": "Array of language IDs to enable completion"
+      },
+      "emojiIntellSense.delimiters": {
+        "type": "array",
+        "item": {
+          "type": "string"
+        },
+        "default": [
+          ":",
+          "/"
+        ],
+        "desciption": "Delimeters for completion"
       }
     }
   }

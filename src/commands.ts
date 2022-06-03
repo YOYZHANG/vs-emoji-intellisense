@@ -1,6 +1,5 @@
 import type { ExtensionContext, TreeItem } from 'vscode'
 import { SnippetString, commands, window } from 'vscode'
-import { config } from './config'
 import { EXT_NAMESPACE } from './meta'
 import { Log } from './utils'
 
@@ -8,7 +7,7 @@ export function RegisterCommands(ctx: ExtensionContext) {
   ctx.subscriptions.push(
     commands.registerCommand(`${EXT_NAMESPACE}.showEmojiSearch`, async () => {
       const search = (await window.showInputBox({
-        value: config.lastSearch,
+        value: '',
         prompt: 'Search emoji',
         placeHolder: 'Search emoji',
       })) || ''
