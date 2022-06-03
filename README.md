@@ -20,7 +20,8 @@
 ### Intellisense
 <img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/completion.gif?raw=true" alt="intellisense" width='600'/>
 
-`emojiIntellSense.languageIds`: Languages where completion are active. 
+`emojiIntellSense.languageIds`: Languages where completion are active.
+
 `emojiIntellSense.delimiters`: Customize how emojis completion triggered.
 
 ### Explorer
@@ -30,9 +31,9 @@
 <img src="https://github.com/YOYZHANG/vs-emoji-intellisense/blob/master/resource/search.gif?raw=true" alt="logo" width='600'/>
 
 ## FAQ
-**press the `enter` key without response when choosing emoji in completion list.**
+**Q: Press the `enter` key without response when choosing emoji in completion list.**
 
-check u vscode settings: `Editor: Accept Suggestion on Enter` and ensure the value is `on`.
+check vscode settings: `Editor: Accept Suggestion on Enter` and ensure the value is `on`.
   
 
 ## License
