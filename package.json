@@ -1,6 +1,6 @@
 {
   "name": "emoji-intellisense",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "description": "Provides intellisense, search and hover preview of emoji",
   "publisher": "zhangxiaoqian",
@@ -109,34 +109,34 @@
           "dark": "./resource/dark/close.svg"
         }
       }
-    ]
-  },
-  "configuration": {
-    "type": "object",
-    "title": "emoji IntellSense",
-    "properties": {
-      "emojiIntellSense.languageIds": {
-        "type": "array",
-        "item": {
-          "type": "string"
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "emoji IntellSense",
+      "properties": {
+        "emojiIntellSense.languageIds": {
+          "type": "array",
+          "item": {
+            "type": "string"
+          },
+          "default": [
+            "markdown",
+            "plaintext",
+            "git-commit"
+          ],
+          "description": "Array of language IDs to enable completion"
         },
-        "default": [
-          "markdown",
-          "plaintext",
-          "git-commit"
-        ],
-        "description": "Array of language IDs to enable completion"
-      },
-      "emojiIntellSense.delimiters": {
-        "type": "array",
-        "item": {
-          "type": "string"
-        },
-        "default": [
-          ":",
-          "/"
-        ],
-        "desciption": "Delimeters for completion"
+        "emojiIntellSense.delimiters": {
+          "type": "array",
+          "item": {
+            "type": "string"
+          },
+          "default": [
+            ":",
+            "/"
+          ],
+          "description": "Delimeters for completion"
+        }
       }
     }
   }
