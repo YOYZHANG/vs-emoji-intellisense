@@ -24,7 +24,7 @@ function createConfigRef<T>(key: string, defaultValue: T, isGlobal = true) {
 }
 
 export const config = reactive({
-  languageIds: createConfigRef(`${EXT_NAMESPACE}.lanuageIds`, ['markdown']),
+  languageIds: createConfigRef(`${EXT_NAMESPACE}.languageIds`, ['markdown']),
   delimiters: createConfigRef(`${EXT_NAMESPACE}.delimiters`, [':', '/']),
 })
 
